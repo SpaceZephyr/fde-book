@@ -3,10 +3,10 @@ const path = require('path');
 const { marked } = require('marked');
 const puppeteer = require('puppeteer-core');
 
-const ROOT = __dirname;
-const SRC = path.join(ROOT, 'chapters');
-const OUT_PDF = path.join(ROOT, 'FDE空皮书.pdf');
-const OUT_MD = path.join(ROOT, 'FDE空皮书-全书合并.md');
+const ROOT = path.join(__dirname, '..');   // 章节 md 平铺在仓库根目录
+const SRC = ROOT;
+const OUT_PDF = path.join(ROOT, 'FDE-Handbook.pdf');
+const OUT_MD = path.join(ROOT, 'FDE-Handbook-单文件.md');
 
 // ---------- 1. concat ----------
 const files = fs.readdirSync(SRC)
@@ -59,7 +59,7 @@ const tocHtml = toc.filter(t => t.lvl === 1 || /^§/.test(t.text)).map(t =>
 const mermaidJs = fs.readFileSync(require.resolve('mermaid/dist/mermaid.min.js'), 'utf8');
 
 const html = `<!doctype html><html lang="zh-CN"><head><meta charset="utf-8">
-<title>FDE 空皮书</title>
+<title>FDE Handbook</title>
 <style>
 :root{ --ink:#1a1a1a; --muted:#6b6b6b; --line:#e3e3e3; --accent:#c2410c; --accent-soft:#fff3ea; }
 *{box-sizing:border-box}
@@ -122,8 +122,8 @@ tr:nth-child(even) td{ background:#fcfcfc }
 
 <div class="cover">
   <div class="bar"></div>
-  <h1>FDE 空皮书</h1>
-  <div class="sub">把 AI 装进企业<br>从需求识别到生产交付</div>
+  <h1>FDE Handbook</h1>
+  <div class="sub">FDE 手册<br>把 AI 装进企业：从需求识别到生产交付</div>
   <div class="meta">
     <div><b>创建者</b>　空格</div>
     <div><b>为谁创建</b>　想转型 FDE 的工程师和产品经理、正在组建 FDE 团队的 AI 公司、需要把 AI 落进业务的企业负责人</div>
@@ -166,7 +166,7 @@ console.log('html built,', html.length, 'chars,', mermaidBlocks.length, 'diagram
     path: OUT_PDF, format: 'A4', printBackground: true,
     displayHeaderFooter: true,
     headerTemplate: '<div></div>',
-    footerTemplate: '<div style="width:100%;font-size:8pt;color:#999;text-align:center;font-family:PingFang SC,sans-serif;padding-top:4px;">FDE 空皮书 · 空格 · <span class="pageNumber"></span></div>',
+    footerTemplate: '<div style="width:100%;font-size:8pt;color:#999;text-align:center;font-family:PingFang SC,sans-serif;padding-top:4px;">FDE Handbook · 空格 · <span class="pageNumber"></span></div>',
     margin: { top: '20mm', bottom: '18mm', left: '17mm', right: '17mm' },
   });
   await browser.close();

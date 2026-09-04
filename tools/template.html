@@ -1,10 +1,10 @@
-<title>FDE 空皮书</title>
+<title>FDE Handbook</title>
 <meta name="description" content="把 AI 装进企业：从需求识别到生产交付。一本关于 Forward Deployed Engineer 的中文书，__CHAPTERS__ 章 + __APPENDIX__ 个附录，全文在线。">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <style>
 /* ===================================================================
-   FDE 空皮书 · 视觉系统
+   FDE Handbook · 视觉系统
    纸 = 冷调近白（不是奶油色）。墨 = 近黑。
    两个结构色对应书里的两套 Harness：
      seal    印章红 —— Delivery / 契约 / 签字
@@ -485,7 +485,7 @@ details.refs li{ font-size:13.5px; line-height:1.7; color:var(--ink-2); }
 
 <header class="topbar">
   <button id="menu-btn" class="mono" aria-label="目录" title="目录" style="font-size:15px;padding:7px 10px;">☰</button>
-  <a class="wordmark" href="#/"><span class="seal">FDE</span><span>空皮书</span><span class="sub">把 AI 装进企业</span></a>
+  <a class="wordmark" href="#/"><span class="seal">FDE</span><span>Handbook</span><span class="sub">把 AI 装进企业</span></a>
   <nav class="topnav">
     <a href="#/" class="hide-sm">首页</a>
     <a href="__REPO__" target="_blank" rel="noopener" class="hide-sm">GitHub</a>
@@ -766,7 +766,7 @@ details.refs li{ font-size:13.5px; line-height:1.7; color:var(--ink-2); }
   <footer class="foot">
     <div class="wrap">
       <div class="row">
-        <span class="mono">FDE 空皮书 · 空格 · 2026-08-31</span>
+        <span class="mono">FDE Handbook《FDE 手册》 · 空格 · 2026-08-31</span>
         <a href="__REPO__" target="_blank" rel="noopener">GitHub</a>
         <a href="__PDF__" target="_blank" rel="noopener">PDF（141 页）</a>
         <a href="#ch01">在线阅读</a>
@@ -871,7 +871,7 @@ details.refs li{ font-size:13.5px; line-height:1.7; color:var(--ink-2); }
         }
       }
     }
-    document.title = found.querySelector('h1').textContent.replace(/\s+/g, ' ').trim() + ' · FDE 空皮书';
+    document.title = found.querySelector('h1').textContent.replace(/\s+/g, ' ').trim() + ' · FDE Handbook';
     document.body.classList.remove('nav-open');
     window.scrollTo(0, 0);
   }
@@ -879,7 +879,7 @@ details.refs li{ font-size:13.5px; line-height:1.7; color:var(--ink-2); }
   function showHome(){
     reader.hidden = true; home.hidden = false;
     progress.style.width = '0';
-    document.title = 'FDE 空皮书';
+    document.title = 'FDE Handbook';
   }
 
   function route(){
