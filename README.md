@@ -4,7 +4,7 @@
 >
 > 32 章 + 8 个附录，141 页，作者：空格
 
-📕 **[下载 PDF](FDE空皮书.pdf)** · 📄 [全书单文件 Markdown](FDE空皮书-全书合并.md) · 📂 [分章节源文件](chapters/)
+🌐 **[在线阅读](https://spacezephyr.github.io/fde-book/)** · 📕 [下载 PDF](FDE空皮书.pdf) · 📄 [全书单文件 Markdown](FDE空皮书-全书合并.md) · 📂 [分章节源文件](chapters/)
 
 ## 这本书想解决什么
 
@@ -147,19 +147,25 @@ A 企业 AI 需求诊断表 · B Outcome Contract 模板 · C Context Registry �
 ## 仓库结构
 
 ```
-chapters/                  33 个 Markdown 源文件（00 首页与大纲 + 32 章 + 附录）
-FDE空皮书-全书合并.md        脚本自动拼出来的单文件版本，不要手改
-FDE空皮书.pdf               成品，141 页 A4
-build-pdf.js               构建脚本：拼接 → Markdown 转 HTML → 渲染 Mermaid → 出 PDF
+chapters/                  34 个 Markdown 源文件（首页与大纲 + 32 章 + 附录），唯一的正本
+FDE空皮书-全书合并.md        脚本拼出来的单文件版本，不要手改
+FDE空皮书.pdf               PDF 成品，141 页 A4
+docs/index.html            网站成品，首页 + 全书阅读器，单文件自包含
+site/template.html         网站的版式与样式模板
+build-pdf.js               出 PDF：拼接 → Markdown 转 HTML → 渲染 Mermaid → 打印
+build-site.js              出网站：解析章节 → 预渲染 Mermaid 成内联 SVG → 套模板
 ```
 
-## 自己重新构建 PDF
+改 `chapters/` 是唯一的入口，PDF 和网站都是从那里生成的。
+
+## 自己重新构建
 
 改 `chapters/` 里的任意一章之后，跑：
 
 ```bash
 npm install
-npm run build
+npm run build       # 出 PDF
+npm run build:site  # 出网站
 ```
 
 构建依赖本机的 Chrome（默认路径 `/Applications/Google Chrome.app`）。装在别处的话用环境变量指过去：
@@ -168,7 +174,9 @@ npm run build
 CHROME_PATH=/path/to/chrome npm run build
 ```
 
-脚本会重新生成 `FDE空皮书-全书合并.md` 和 `FDE空皮书.pdf`。12 张 Mermaid 图在渲染阶段转成 SVG 直接嵌进 PDF，不依赖任何外部服务。
+两个脚本都在构建阶段把 Mermaid 转成 SVG 内嵌进去，成品不依赖任何外部服务：PDF 里 12 张图，网站里 11 张。
+
+网站输出到 `docs/index.html`，一个文件装下首页和全部 40 篇正文，没有外链的字体、脚本或图片。GitHub Pages 直接指向 `main` 分支的 `/docs` 目录。
 
 ## 许可
 

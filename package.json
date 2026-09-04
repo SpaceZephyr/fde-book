@@ -4,7 +4,8 @@
   "private": true,
   "description": "FDE 空皮书 · 把 AI 装进企业：从需求识别到生产交付",
   "scripts": {
-    "build": "node build-pdf.js"
+    "build": "node build-pdf.js",
+    "build:site": "node build-site.js"
   },
   "dependencies": {
     "marked": "^12.0.0",
