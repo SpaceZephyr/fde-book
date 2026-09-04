@@ -123,7 +123,7 @@ tr:nth-child(even) td{ background:#fcfcfc }
 <div class="cover">
   <div class="bar"></div>
   <h1>FDE Handbook</h1>
-  <div class="sub">FDE 手册<br>把 AI 装进企业：从需求识别到生产交付</div>
+  <div class="sub">前线手册<br>从需求识别到生产交付</div>
   <div class="meta">
     <div><b>创建者</b>　空格</div>
     <div><b>为谁创建</b>　想转型 FDE 的工程师和产品经理、正在组建 FDE 团队的 AI 公司、需要把 AI 落进业务的企业负责人</div>

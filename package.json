@@ -2,7 +2,7 @@
   "name": "fde-handbook",
   "version": "1.0.0",
   "private": true,
-  "description": "FDE Handbook《FDE 手册》· 把 AI 装进企业：从需求识别到生产交付",
+  "description": "FDE Handbook《前线手册》· 从需求识别到生产交付",
   "scripts": {
     "build": "node tools/build-pdf.js",
     "build:site": "node tools/build-site.js"
